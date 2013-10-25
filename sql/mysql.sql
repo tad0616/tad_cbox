@@ -1,5 +1,5 @@
 CREATE TABLE tad_cbox (
-  `sn` mediumint(9) unsigned NOT NULL  auto_increment default 0 ,
+  `sn` mediumint(9) unsigned NOT NULL  auto_increment ,
   `publisher` varchar(255) NOT NULL default '' ,
   `msg` text NOT NULL ,
   `post_date` datetime NOT NULL default '0000-00-00 00:00:00' ,
@@ -12,5 +12,3 @@ CREATE TABLE tad_cbox (
   PRIMARY KEY  (`sn`),
   KEY `box_sn` (`box_sn`)
 ) ENGINE=MyISAM;
-
-
