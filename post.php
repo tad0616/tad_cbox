@@ -225,10 +225,10 @@ function insert_tad_cbox(){
 	$myts =& MyTextSanitizer::getInstance();
 	$publisher=$myts->htmlSpecialChars($myts->addSlashes ($publisher));
 	$msg=($xoopsModuleConfig['allow_html']=='1')?$myts->addSlashes($_POST['msg']):$myts->htmlSpecialChars($myts->addSlashes ($_POST['msg']));
+  $only_root=empty($_POST['only_root'])?'0':'1';
 
-
-    $now=date("Y-m-d H:i:s" , xoops_getUserTimestamp(time()));
-	$sql = "insert into ".$xoopsDB->prefix("tad_cbox")." (`publisher`,`msg`,`post_date`,`ip`,`only_root`) values('{$publisher}','{$msg}','{$now}','{$myip}','{$_POST['only_root']}')";
+  $now=date("Y-m-d H:i:s" , xoops_getUserTimestamp(time()));
+	$sql = "insert into ".$xoopsDB->prefix("tad_cbox")." (`publisher`,`msg`,`post_date`,`ip`,`only_root`,`root_msg`,`uid`,`box_sn`,`re_sn`) values('{$publisher}','{$msg}','{$now}','{$myip}','{$only_root}','','0','0','0')";
 	$xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'],3, mysql_error());
 	//取得最後新增資料的流水編號
 	$_SESSION['publisher']=$_POST['publisher'];
