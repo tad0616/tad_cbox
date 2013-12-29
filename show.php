@@ -12,7 +12,7 @@ include_once "header.php";
 function list_tad_cbox(){
 	global $xoopsDB,$xoopsModule,$xoopsModuleConfig,$xoopsUser;
 	$MDIR=$xoopsModule->getVar('dirname');
-	
+
 	$cbox_show_num=empty($_SESSION['cbox_show_num'])?20:$_SESSION['cbox_show_num'];
 
 	if($_GET['mode']=="box"){
@@ -75,7 +75,7 @@ function list_tad_cbox(){
 
 	$member_handler = xoops_gethandler('member');
 
-	
+
 	while(list($sn,$publisher,$msg,$post_date,$ip,$only_root,$root_msg)=$xoopsDB->fetchRow($result)){
 	/*
 	  $user = $member_handler->getUser($publisher);
@@ -197,6 +197,7 @@ switch($_REQUEST['op']){
 	$main=list_tad_cbox();
 	break;
 }
+
 
 /*-----------秀出結果區--------------*/
 
