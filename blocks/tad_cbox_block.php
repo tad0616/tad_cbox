@@ -161,10 +161,11 @@ color:white;";
   }
 	
 	$form="
-  <script type='text/javascript' src='".XOOPS_URL."/modules/tad_cbox/class/mColorPicker/javascripts/mColorPicker.js' charset='UTF-8'></script>
+  <script type='text/javascript' src='".XOOPS_URL."/modules/tadtools/mColorPicker/javascripts/mColorPicker.js' charset='UTF-8'></script>
+
   <script type='text/javascript'>
     $('#color').mColorPicker({
-    imageFolder: '../tad_cbox/class/mColorPicker/images/'
+      imageFolder: '".XOOPS_URL."/modules/tadtools/mColorPicker/images/'
     });
   </script>
 
