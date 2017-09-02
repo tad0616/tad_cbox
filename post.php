@@ -314,5 +314,3 @@ echo "
 echo $main;
 echo "</body>
 </html>";
-
-?>

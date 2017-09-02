@@ -1,11 +1,11 @@
 <?php
 //  ------------------------------------------------------------------------ //
-// ¥»¼Ò²Õ¥Ñ tad »s§@
-// »s§@¤é´Á¡G2008-03-25
+// æœ¬æ¨¡çµ„ç”± tad è£½ä½œ
+// è£½ä½œæ—¥æœŸï¼š2008-03-25
 // $Id: tad_cbox_block.php,v 1.1 2008/05/14 01:25:35 tad Exp $
 // ------------------------------------------------------------------------- //
 
-//°Ï¶ô¥D¨ç¦¡ (·|²£¥Í¤@­Ó§Y®É¯d¨¥Ã¯°Ï¶ô)
+//å€å¡Šä¸»å‡½å¼ (æœƒç”¢ç”Ÿä¸€å€‹å³æ™‚ç•™è¨€ç°¿å€å¡Š)
 function tad_cbox_b_show_1($options){
 	global $xoopsUser;
 	
@@ -15,7 +15,7 @@ function tad_cbox_b_show_1($options){
     return ;
   }
 	
-  //¤Ş¤JTadToolsªºjquery
+  //å¼•å…¥TadToolsçš„jquery
   if(!file_exists(XOOPS_ROOT_PATH."/modules/tadtools/jquery.php")){
   redirect_header("http://www.tad0616.net/modules/tad_uploader/index.php?of_cat_sn=50",3, _TAD_NEED_TADTOOLS);
   }
@@ -36,7 +36,7 @@ function tad_cbox_b_show_1($options){
   $post_height=$options[3];
 
 	
-	//ÀË¬d¬O§_¦b¡u¤£»İÀË¬dªº¸s²Õ¤¤¡v
+	//æª¢æŸ¥æ˜¯å¦åœ¨ã€Œä¸éœ€æª¢æŸ¥çš„ç¾¤çµ„ä¸­ã€
   if($xoopsUser){
     $no_chk=false;
     $group=$xoopsUser->getGroups();
@@ -131,7 +131,7 @@ function tad_cbox_b_show_1($options){
 	return $block;
 }
 
-//°Ï¶ô½s¿è¨ç¦¡
+//å€å¡Šç·¨è¼¯å‡½å¼
 function tad_cbox_b_edit($options){
 
 	$opt1=($options[4]=="one")?"selected":"";

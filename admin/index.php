@@ -1,54 +1,53 @@
 <?php
 //  ------------------------------------------------------------------------ //
-// •ªº“≤’•— tad ªsß@
-// ªsß@§È¥¡°G2008-03-25
+// Êú¨Ê®°ÁµÑÁî± tad Ë£Ω‰Ωú
+// Ë£Ω‰ΩúÊó•ÊúüÔºö2008-03-25
 // ------------------------------------------------------------------------- //
 
-/*-----------§ﬁ§J¿…Æ◊∞œ--------------*/
+/*-----------ÂºïÂÖ•Ê™îÊ°àÂçÄ--------------*/
 include_once "../../../include/cp_header.php";
 include_once "../function.php";
 
-/*-----------function∞œ--------------*/
+/*-----------functionÂçÄ--------------*/
 
-//¶C•X©“¶≥tad_cbox∏ÍÆ∆
+//ÂàóÂá∫ÊâÄÊúâtad_cboxË≥áÊñô
 function list_tad_cbox(){
-	global $xoopsDB,$xoopsModule,$xoopsUser,$xoopsModuleConfig;
- $MDIR=$xoopsModule->getVar('dirname');
+    global $xoopsDB, $xoopsModule, $xoopsUser, $xoopsModuleConfig;
+    $MDIR = $xoopsModule->getVar('dirname');
 	$sql = "select * from ".$xoopsDB->prefix("tad_cbox")." order by post_date desc";
 
-	//getPageBar($≠Ïsqlªy™k, ®C≠∂≈„•‹¥Xµß∏ÍÆ∆, ≥Ã¶h≈„•‹¥X≠”≠∂º∆øÔ∂µ);
-   $PageBar=getPageBar($sql,20,10);
-   $bar=$PageBar['bar'];
-   $sql=$PageBar['sql'];
+	//getPageBar($ÂéüsqlË™ûÊ≥ï, ÊØèÈ†ÅÈ°ØÁ§∫ÂπæÁ≠ÜË≥áÊñô, ÊúÄÂ§öÈ°ØÁ§∫ÂπæÂÄãÈ†ÅÊï∏ÈÅ∏È†Ö);
+    $PageBar = getPageBar($sql, 20, 10);
+    $bar     = $PageBar['bar'];
+    $sql     = $PageBar['sql'];
 
-	$result = $xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'],3, mysql_error());
+    $result = $xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'], 3, mysql_error());
 
 
-	//ßP¬_¨Oß_πÔ∏”º“≤’¶≥∫ﬁ≤z≈v≠≠°A  ≠Y™≈•’
-  if ($xoopsUser) {
-    $module_id = $xoopsModule->getVar('mid');
-    $isAdmin=$xoopsUser->isAdmin($module_id);
-  }else{
-    $isAdmin=false;
+	//Âà§Êñ∑ÊòØÂê¶Â∞çË©≤Ê®°ÁµÑÊúâÁÆ°ÁêÜÊ¨äÈôêÔºå  Ëã•Á©∫ÁôΩ
+    if ($xoopsUser) {
+        $module_id = $xoopsModule->getVar('mid');
+        $isAdmin   = $xoopsUser->isAdmin($module_id);
+    } else {
+        $isAdmin = false;
+    }
 
-	}
+    $cbox_root_msg_color = (empty($_SESSION['cbox_root_msg_color'])) ? "#E5ECC7" : $_SESSION['cbox_root_msg_color'];
 
-  $cbox_root_msg_color=(empty($_SESSION['cbox_root_msg_color']))?"#E5ECC7":$_SESSION['cbox_root_msg_color'];
-
-  if($isAdmin){
-		$del_js="
+    if ($isAdmin) {
+        $del_js = "
 		<script>
 		function delete_tad_cbox_func(sn){
-			var sure = window.confirm('"._BP_DEL_CHK."');
+			var sure = window.confirm('" . _BP_DEL_CHK . "');
 			if (!sure)	return;
 			location.href=\"{$_SERVER['PHP_SELF']}?mode={$_GET['mode']}&op=delete_tad_cbox&sn=\" + sn;
 		}
 		</script>";
-	}else{
-    $del_js="";
-	}
+    } else {
+        $del_js = "";
+    }
 
-	$data="
+    $data = "
 	$del_js
   <style>
 	.triangle-border {
@@ -62,70 +61,67 @@ function list_tad_cbox(){
 	<div class='cbox'>
 	<table id='cbox_show_tbl'>
 	<tr><td class=bar>$bar</td></tr>";
-	$i=2;
+    $i    = 2;
 
-	while(list($sn,$publisher,$msg,$post_date,$ip,$only_root,$root_msg)=$xoopsDB->fetchRow($result)){
+    while (list($sn, $publisher, $msg, $post_date, $ip, $only_root, $root_msg) = $xoopsDB->fetchRow($result)) {
+        $bgcss = ($i % 2) ? "color:{$xoopsModuleConfig['col1_color']};background-color:{$xoopsModuleConfig['col1_bgcolor']}" : "color:{$xoopsModuleConfig['col2_color']};background-color:{$xoopsModuleConfig['col2_bgcolor']}";
 
-	  $bgcss=($i%2)?"color:{$xoopsModuleConfig['col1_color']};background-color:{$xoopsModuleConfig['col1_bgcolor']}":"color:{$xoopsModuleConfig['col2_color']};background-color:{$xoopsModuleConfig['col2_bgcolor']}";
+        $post_date = date("Y-m-d H:i:s", xoops_getUserTimestamp(strtotime($post_date)));
 
-	  $post_date=date("Y-m-d H:i:s",xoops_getUserTimestamp(strtotime($post_date)));
+        if ($only_root == '1' and !$isAdmin) {
+            $msg = "<font class='lock_msg'>" . _MA_TADCBOX_LOCK_MSG . "</font>";
+        }
 
-	  if($only_root=='1' and !$isAdmin){
-			$msg="<font class='lock_msg'>"._MA_TADCBOX_LOCK_MSG."</font>";
-		}
+        $tool = ($isAdmin) ? "<img src='" . XOOPS_URL . "/modules/tad_cbox/images/del2.gif' width=12 height=12 align=bottom hspace=2 onClick=\"delete_tad_cbox_func($sn)\">" : "";
 
-    $tool=($isAdmin)?"<img src='".XOOPS_URL."/modules/tad_cbox/images/del2.gif' width=12 height=12 align=bottom hspace=2 onClick=\"delete_tad_cbox_func($sn)\">":"";
+        $msg = str_replace("[s", "<img src='" . XOOPS_URL . "/modules/tad_cbox/images/smiles/s", $msg);
+        $msg = str_replace(".gif]", ".gif' hspace=2 align='absmiddle'>", $msg);
 
-		$msg=str_replace("[s","<img src='".XOOPS_URL."/modules/tad_cbox/images/smiles/s",$msg);
-		$msg=str_replace(".gif]",".gif' hspace=2 align='absmiddle'>",$msg);
+        if (!empty($root_msg)) {
+            $root_msg = str_replace("[s", "<img src='" . XOOPS_URL . "/modules/tad_cbox/images/smiles/s", $root_msg);
+            $root_msg = str_replace(".gif]", ".gif' hspace=2 align='absmiddle'>", $root_msg);
 
-		if(!empty($root_msg)){
-      $root_msg=str_replace("[s","<img src='".XOOPS_URL."/modules/tad_cbox/images/smiles/s",$root_msg);
-			$root_msg=str_replace(".gif]",".gif' hspace=2 align='absmiddle'>",$root_msg);
-
-		  $root="
+            $root = "
         <div class='triangle-border' style='line-height:150%;'>
         $root_msg
         </div>
       <div style='clear:both;'></div>";
-		}else{
-			$root="";
-		}
+        } else {
+            $root = "";
+        }
 
-
-
-		$data.="<tr>
+        $data .= "<tr>
 		<td style='{$bgcss}'>
 		<div class='cbox_date'><font class='cbox_ip'>{$ip}</font> | {$post_date} {$tool}</div> {$root}
 		<div class='cbox_publisher'>{$publisher}</div>: {$msg}</td>
 		</tr>";
-		$i++;
-	}
-	$data.="
+        $i++;
+    }
+    $data .= "
 	<tr><td class=bar>$bar</td></tr>
 	</table></div>";
-	return $data;
+    return $data;
 }
 
 
 
 
-/*-----------∞ı¶Ê∞ ß@ßP¬_∞œ----------*/
-$op = (!isset($_REQUEST['op']))? "main":$_REQUEST['op'];
+/*-----------Âü∑Ë°åÂãï‰ΩúÂà§Êñ∑ÂçÄ----------*/
+$op = (!isset($_REQUEST['op'])) ? "main" : $_REQUEST['op'];
 
-switch($op){
-	//ßR∞£∏ÍÆ∆
+switch ($op) {
+	//Âà™Èô§Ë≥áÊñô
 	case "delete_tad_cbox";
-	delete_tad_cbox($_GET['sn']);
-	header("location: {$_SERVER['PHP_SELF']}?mode={$_GET['mode']}");
-	break;
+        delete_tad_cbox($_GET['sn']);
+        header("location: {$_SERVER['PHP_SELF']}?mode={$_GET['mode']}");
+        break;
 
-	default:
-	$main=list_tad_cbox();
-	break;
+    default:
+        $main = list_tad_cbox();
+        break;
 }
 
-/*-----------®q•Xµ≤™G∞œ--------------*/
+/*-----------ÁßÄÂá∫ÁµêÊûúÂçÄ--------------*/
 xoops_cp_header();
 echo "<link rel='stylesheet' type='text/css' media='screen' href='../module.css' />";
 admin_toolbar(0);
