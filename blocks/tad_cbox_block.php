@@ -219,7 +219,3 @@ color:white;";
 	";
 	return $form;
 }
-
-
-
-?>

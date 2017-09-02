@@ -37,4 +37,3 @@ define("_MA_TADCBOX_INPUT_CODE","左圖數字為：");
 define("_MD_TADCBOX_SECURITY_CODE_ERROR","認證碼不正確喔！");
 define("_MA_TADCBOX_ADD_MSG","「%s」的留言：");
 define("_MA_TADCBOX_RELOAD","重整");
-?>

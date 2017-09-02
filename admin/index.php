@@ -128,4 +128,4 @@ echo "<link rel='stylesheet' type='text/css' media='screen' href='../module.css'
 echo $main;
 xoops_cp_footer();
 
-?>
+

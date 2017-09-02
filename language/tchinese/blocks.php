@@ -19,4 +19,4 @@ define("_MB_TADCBOX_TAD_CBOX_B_EDIT_BITEM6","公佈欄高度");
 define("_MB_TADCBOX_TAD_CBOX_B_EDIT_BITEM7","公佈欄CSS設定");
 define("_MB_TADCBOX_TAD_CBOX_VIEW_ALL","觀看所有留言");
 define("_TAD_NEED_TADTOOLS"," 需要 modules/tadtools，可至<a href='http://tad.tnc.edu.tw/modules/tad_uploader/index.php?of_cat_sn=48' target='_blank'>Tad教材網</a>下載。");
-?>
+
