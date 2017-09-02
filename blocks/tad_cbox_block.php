@@ -27,10 +27,10 @@ function tad_cbox_b_show_1($options){
 	$_SESSION['cbox_root_msg_color']=$options[4];
 	$_SESSION['cbox_use_smile']=$options[1];
 	
-	$modhandler = &xoops_gethandler('module');
-  $xoopsModule = &$modhandler->getByDirname("tad_cbox");
-  $config_handler =& xoops_gethandler('config');
-  $xoopsModuleConfig =& $config_handler->getConfigsByCat(0, $xoopsModule->getVar('mid'));
+	$modhandler = xoops_getHandler('module');
+  $xoopsModule = $modhandler->getByDirname("tad_cbox");
+  $config_handler = xoops_getHandler('config');
+  $xoopsModuleConfig = $config_handler->getConfigsByCat(0, $xoopsModule->getVar('mid'));
   
 
   $post_height=$options[3];

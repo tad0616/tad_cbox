@@ -124,7 +124,7 @@ switch ($op) {
 /*-----------秀出結果區--------------*/
 xoops_cp_header();
 echo "<link rel='stylesheet' type='text/css' media='screen' href='../module.css' />";
-admin_toolbar(0);
+//admin_toolbar(0);
 echo $main;
 xoops_cp_footer();
 

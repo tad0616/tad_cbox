@@ -69,7 +69,7 @@ function list_tad_cbox()
 	<table id='cbox_show_tbl'>$bar_tool";
     $i    = 2;
 
-    $member_handler = xoops_gethandler('member');
+    $member_handler = xoops_getHandler('member');
 
     while (list($sn, $publisher, $msg, $post_date, $ip, $only_root, $root_msg) = $xoopsDB->fetchRow($result)) {
         /*
