@@ -46,4 +46,3 @@ define("_MI_TADCBOX_OPT1","歡迎使用即時留言板！\n期待您的留言喔！");
 /** v 1.6 **/
 define("_MI_TADCBOX_SMILE_NUM","<b>表情圖數量？</b>");
 define("_MI_TADCBOX_SMILE_NUM_DESC","設定表情圖一次出現數量");
-?>

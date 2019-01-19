@@ -222,7 +222,7 @@ function insert_tad_cbox(){
 	    $myip = $myip[0];
 	}
 	
-	$myts =& MyTextSanitizer::getInstance();
+	$myts = MyTextSanitizer::getInstance();
 	$publisher=$myts->htmlSpecialChars($myts->addSlashes ($publisher));
 	$msg=($xoopsModuleConfig['allow_html']=='1')?$myts->addSlashes($_POST['msg']):$myts->htmlSpecialChars($myts->addSlashes ($_POST['msg']));
   $only_root=empty($_POST['only_root'])?'0':'1';
@@ -314,5 +314,3 @@ echo "
 echo $main;
 echo "</body>
 </html>";
-
-?>

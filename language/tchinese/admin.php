@@ -23,5 +23,3 @@ define("_BP_ADD","新增資料");
 define("_MA_INPUT_FORM","輸入表單");
 define("_MA_SAVE","儲存");
 define("_MI_TADCBOX_ADMENU1", "留言管理");
-
-?>

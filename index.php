@@ -47,5 +47,3 @@ $xoopsTpl->assign( "css" , "<link rel='stylesheet' type='text/css' media='screen
 $xoopsTpl->assign( "toolbar" , toolbar($interface_menu)) ;
 $xoopsTpl->assign( "content" , $main) ;
 include_once XOOPS_ROOT_PATH.'/footer.php';
-
-?>
