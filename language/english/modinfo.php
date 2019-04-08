@@ -46,7 +46,7 @@ define('_MI_TADCBOX_SMILE_NUM', '<span style="font-weight: bold;">Number of emot
 define('_MI_TADCBOX_SMILE_NUM_DESC', 'Set the number of emoticons');
 
 define('_MI_TADCBOX_DIRNAME', basename(dirname(dirname(__DIR__))));
-define('_MI_TADCBOX_HELP_HEADER', __DIR__ . '/help/helpheader.html');
+define('_MI_TADCBOX_HELP_HEADER', __DIR__ . '/help/helpheader.tpl');
 define('_MI_TADCBOX_BACK_2_ADMIN', 'Back to Administration of ');
 
 //help
