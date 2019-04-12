@@ -130,7 +130,7 @@ function list_tad_cbox()
 
 //跳過HTML的換行
 function breakLongWords($str, $maxLength, $char){
-    $wordEndChars = array(" ", "\n", "\r", "\f", "\v", "\0");
+    $wordEndChars = [" ", "\n", "\r", "\f", "\v", "\0"];
     $count        = 0;
     $newStr       = "";
     $openTag      = false;
