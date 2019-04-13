@@ -22,7 +22,7 @@ define('_MI_TADCBOX_INPUT_MIN', '<b>每則留言字數下限</b>');
 define('_MI_TADCBOX_INPUT_MIN_DESC', '至少要寫多少字？例如：至少要寫 5 個中文字，則填入5。');
 define('_MI_TADCBOX_INPUT_MAX', '<b>每則留言字數上限</b>');
 define('_MI_TADCBOX_INPUT_MAX_DESC', '最多不能超過多少字？例如：最多只能寫 100 個中文字，則填入100。');
-define('_MI_TADCBOX_ALLOW_HTML', "<b>使否允許使用HTML語法？</b>");
+define('_MI_TADCBOX_ALLOW_HTML', '<b>使否允許使用HTML語法？</b>');
 define('_MI_TADCBOX_ALLOW_HTML_DESC', '開啟的話，風險較大...');
 define('_MI_TADCBOX_SECURITY_IMAGES', '<b>是否使用圖形認證？</b>');
 define('_MI_TADCBOX_SECURITY_IMAGES_DESC', '留言時，是否需要使用圖形認證，以防止一些留言機器人來濫發垃圾留言。');
@@ -36,8 +36,8 @@ define('_MI_TADCBOX_COL2_COLOR', '<b>色系2 的文字顏色</b>');
 define('_MI_TADCBOX_COL2_COLOR_DESC', '第2 種色系的留言文字顏色，請用 #000000 或 rgb(0,0,0) 等CSS顏色格式');
 define('_MI_TADCBOX_COL2_BGCOLOR', '<b>色系2 的背景顏色</b>');
 define('_MI_TADCBOX_COL2_BGCOLOR_DESC', '第2 種色系的留言背景顏色，請用 #000000 或 rgb(0,0,0) 等CSS顏色格式');
-define('_MI_TADCBOX_WORDWRAP', "<b>是否啟動強制換行功能？</b>");
-define('_MI_TADCBOX_WORDWRAP_DESC', "此功能將可以有效對付過長的英文連續字串，但在某些中英文夾雜的情況下可能會有切字不正確的情況產生。");
+define('_MI_TADCBOX_WORDWRAP', '<b>是否啟動強制換行功能？</b>');
+define('_MI_TADCBOX_WORDWRAP_DESC', '此功能將可以有效對付過長的英文連續字串，但在某些中英文夾雜的情況下可能會有切字不正確的情況產生。');
 
 define('_MI_TADCBOX_OPT1', "歡迎使用即時留言板！\n期待您的留言喔！");
 
