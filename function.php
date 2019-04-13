@@ -6,31 +6,31 @@
 // ------------------------------------------------------------------------- //
 
 //引入TadTools的函式庫
-if (!file_exists(XOOPS_ROOT_PATH . "/modules/tadtools/tad_function.php")) {
-    redirect_header("http://www.tad0616.net/modules/tad_uploader/index.php?of_cat_sn=50", 3, _TAD_NEED_TADTOOLS);
+if (!file_exists(XOOPS_ROOT_PATH . '/modules/tadtools/tad_function.php')) {
+    redirect_header('http://www.tad0616.net/modules/tad_uploader/index.php?of_cat_sn=50', 3, _TAD_NEED_TADTOOLS);
 }
-include_once XOOPS_ROOT_PATH . "/modules/tadtools/tad_function.php";
+include_once XOOPS_ROOT_PATH . '/modules/tadtools/tad_function.php';
 
 //刪除tad_cbox某筆資料資料
-function delete_tad_cbox($sn = "")
+function delete_tad_cbox($sn = '')
 {
     global $xoopsDB, $xoopsUser, $xoopsModule;
     //判斷是否對該模組有管理權限，  若空白
     if ($xoopsUser) {
         $module_id = $xoopsModule->getVar('mid');
-        $isAdmin   = $xoopsUser->isAdmin($module_id);
+        $isAdmin = $xoopsUser->isAdmin($module_id);
     } else {
         $isAdmin = false;
     }
     if ($isAdmin) {
-        $sql = "delete from " . $xoopsDB->prefix("tad_cbox") . " where sn='$sn'";
+        $sql = 'delete from ' . $xoopsDB->prefix('tad_cbox') . " where sn='$sn'";
         $xoopsDB->queryF($sql) or redirect_header($_SERVER['PHP_SELF'], 3, mysql_error());
     }
 }
 
 /********************* 預設函數 *********************/
 //圓角文字框
-function div_3d($title = "", $main = "", $kind = "raised", $style = "")
+function div_3d($title = '', $main = '', $kind = 'raised', $style = '')
 {
     $main = "<table style='width:auto;{$style}'><tr><td>
 	<div class='{$kind}'>
@@ -42,18 +42,19 @@ function div_3d($title = "", $main = "", $kind = "raised", $style = "")
 	<b class='b4b'></b><b class='b3b'></b><b class='b2b'></b><b class='b1b'></b>
 	</div>
 	</td></tr></table>";
+
     return $main;
 }
 
-if (!function_exists("is_utf8")) {
+if (!function_exists('is_utf8')) {
     //判斷字串是否為utf8
     function is_utf8($str)
     {
-        $i   = 0;
-        $len = strlen($str);
+        $i = 0;
+        $len = mb_strlen($str);
 
         for ($i = 0; $i < $len; $i++) {
-            $sbit = ord(substr($str, $i, 1));
+            $sbit = ord(mb_substr($str, $i, 1));
             if ($sbit < 128) {
                 //本字節為英文字符，不與理會
             } elseif ($sbit > 191 && $sbit < 224) {

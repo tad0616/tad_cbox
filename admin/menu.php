@@ -6,5 +6,5 @@
 // ------------------------------------------------------------------------- //
 
 $adminmenu[0]['title'] = _MI_TADCBOX_ADMENU1;
-$adminmenu[0]['link'] = "admin/index.php";
-$adminmenu[0]['icon'] = "images/comment.png";
+$adminmenu[0]['link'] = 'admin/index.php';
+$adminmenu[0]['icon'] = 'images/comment.png';
