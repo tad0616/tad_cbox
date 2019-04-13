@@ -132,10 +132,10 @@ function tad_cbox_b_show_1($options)
 //區塊編輯函式
 function tad_cbox_b_edit($options)
 {
-    $opt1 = ('one' == $options[4]) ? 'selected' : '';
-    $opt2 = ('two' == $options[4]) ? 'selected' : '';
-    $opt3 = ('three' == $options[4]) ? 'selected' : '';
-    $opt4 = ('four' == $options[4]) ? 'selected' : '';
+    $opt1 = ('one' === $options[4]) ? 'selected' : '';
+    $opt2 = ('two' === $options[4]) ? 'selected' : '';
+    $opt3 = ('three' === $options[4]) ? 'selected' : '';
+    $opt4 = ('four' === $options[4]) ? 'selected' : '';
 
     $options1_1 = ('1' == $options[1]) ? 'checked' : '';
     $options1_0 = ('0' == $options[1]) ? 'checked' : '';
@@ -148,13 +148,13 @@ function tad_cbox_b_edit($options)
         }
         */
 
-    if ('one' == $options[4]) {
+    if ('one' === $options[4]) {
         $options[4] = '#ECC9C9';
-    } elseif ('two' == $options[4]) {
+    } elseif ('two' === $options[4]) {
         $options[4] = '#E5ECC7';
-    } elseif ('tree' == $options[4]) {
+    } elseif ('tree' === $options[4]) {
         $options[4] = '#C7D6EC';
-    } elseif ('four' == $options[4]) {
+    } elseif ('four' === $options[4]) {
         $options[4] = '#E5C7EC';
     }
 

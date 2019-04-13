@@ -9,7 +9,7 @@
 include_once 'header.php';
 /*-----------function區--------------*/
 
-if ('mkpic' == $_GET['mode']) {
+if ('mkpic' === $_GET['mode']) {
     if ('1' == $xoopsModuleConfig['security_images']) {
         $num1 = mt_rand(0, 9);
         $num2 = mt_rand(0, 9);
@@ -70,7 +70,7 @@ function tad_cbox_form($sn = '')
         if (is_dir($dir)) {
             if ($dh = opendir($dir)) {
                 while (false !== ($file = readdir($dh))) {
-                    if ('.' == mb_substr($file, 0, 1)) {
+                    if ('.' === mb_substr($file, 0, 1)) {
                         continue;
                     }
                     $key = mb_substr($file, 1, -4);
@@ -303,7 +303,7 @@ echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR
 <meta http-equiv='content-type' content='text/html; charset=" . _CHARSET . "'>
 <link rel='stylesheet' type='text/css' media='screen' href='" . XOOPS_URL . "/modules/tad_cbox/module.css' />";
 
-if ('reload' == $_GET['op']) {
+if ('reload' === $_GET['op']) {
     echo "<script type='text/javascript'>window.open('" . XOOPS_URL . "/modules/tad_cbox/show.php?mode=box','cboxmain')</script>";
 }
 

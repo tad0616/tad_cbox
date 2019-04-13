@@ -16,7 +16,7 @@ function list_tad_cbox()
 
     $cbox_show_num = empty($_SESSION['cbox_show_num']) ? 20 : $_SESSION['cbox_show_num'];
 
-    if ('box' == $_GET['mode']) {
+    if ('box' === $_GET['mode']) {
         $sql = 'select * from ' . $xoopsDB->prefix('tad_cbox') . " order by post_date desc limit 0,{$cbox_show_num}";
         $bar_tool = '';
     } else {
@@ -104,7 +104,7 @@ function list_tad_cbox()
             $root_msg = str_replace('.gif]', ".gif' hspace=2 align='absmiddle'>", $root_msg);
             $root_msg = nl2br($root_msg);
 
-            $div_id = ('box' == $_GET['mode']) ? 'cbox_container' : 'cbox_container2';
+            $div_id = ('box' === $_GET['mode']) ? 'cbox_container' : 'cbox_container2';
 
             $root = "
         <div class='triangle-border' style='line-height:150%;'>
@@ -138,12 +138,12 @@ function breakLongWords($str, $maxLength, $char)
     for ($i = 0, $iMax = mb_strlen($str); $i < $iMax; $i++) {
         $newStr .= $str[$i];
 
-        if ('<' == $str[$i]) {
+        if ('<' === $str[$i]) {
             $openTag = true;
             continue;
         }
 
-        if (($openTag) && ('>' == $str[$i])) {
+        if (($openTag) && ('>' === $str[$i])) {
             $openTag = false;
             continue;
         }
