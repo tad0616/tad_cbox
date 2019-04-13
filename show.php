@@ -135,7 +135,7 @@ function breakLongWords($str, $maxLength, $char)
     $count = 0;
     $newStr = '';
     $openTag = false;
-    for ($i = 0; $i < mb_strlen($str); $i++) {
+    for ($i = 0, $iMax = mb_strlen($str); $i < $iMax; $i++) {
         $newStr .= $str[$i];
 
         if ('<' == $str[$i]) {
