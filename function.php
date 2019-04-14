@@ -9,7 +9,7 @@
 if (!file_exists(XOOPS_ROOT_PATH . '/modules/tadtools/tad_function.php')) {
     redirect_header('http://www.tad0616.net/modules/tad_uploader/index.php?of_cat_sn=50', 3, _TAD_NEED_TADTOOLS);
 }
-include_once XOOPS_ROOT_PATH . '/modules/tadtools/tad_function.php';
+require_once XOOPS_ROOT_PATH . '/modules/tadtools/tad_function.php';
 
 //刪除tad_cbox某筆資料資料
 function delete_tad_cbox($sn = '')
@@ -24,7 +24,7 @@ function delete_tad_cbox($sn = '')
     }
     if ($isAdmin) {
         $sql = 'delete from ' . $xoopsDB->prefix('tad_cbox') . " where sn='$sn'";
-        $xoopsDB->queryF($sql) or redirect_header($_SERVER['PHP_SELF'], 3, mysql_error());
+        $xoopsDB->queryF($sql) or redirect_header($_SERVER['PHP_SELF'], 3, $GLOBALS['xoopsDB']->error());
     }
 }
 

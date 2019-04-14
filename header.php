@@ -1,6 +1,6 @@
 <?php
-include '../../mainfile.php';
-include 'function.php';
+require dirname(dirname(__DIR__)) . '/mainfile.php';
+require __DIR__ . '/function.php';
 
 $isAdmin = false;
 if ($xoopsUser) {

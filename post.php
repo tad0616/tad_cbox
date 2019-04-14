@@ -6,7 +6,7 @@
 // ------------------------------------------------------------------------- //
 
 /*-----------引入檔案區--------------*/
-include_once 'header.php';
+require_once __DIR__ . '/header.php';
 /*-----------function區--------------*/
 
 if ('mkpic' === $_GET['mode']) {
@@ -232,7 +232,7 @@ function insert_tad_cbox()
 
     $now = date('Y-m-d H:i:s', xoops_getUserTimestamp(time()));
     $sql = 'insert into ' . $xoopsDB->prefix('tad_cbox') . " (`publisher`,`msg`,`post_date`,`ip`,`only_root`,`root_msg`,`uid`,`box_sn`,`re_sn`) values('{$publisher}','{$msg}','{$now}','{$myip}','{$only_root}','','0','0','0')";
-    $xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'], 3, mysql_error());
+    $xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'], 3, $GLOBALS['xoopsDB']->error());
     //取得最後新增資料的流水編號
     $_SESSION['publisher'] = $_POST['publisher'];
     if ($xoopsUser) {
@@ -246,7 +246,7 @@ function update_tad_cbox($sn = '')
     global $xoopsDB,$xoopsUser;
     $uid_name = $xoopsUser->getVar('uname');
     $sql = 'update ' . $xoopsDB->prefix('tad_cbox') . " set `root_msg` = '{$_POST['root_msg']} (by {$uid_name})' where sn='{$sn}'";
-    $xoopsDB->queryF($sql) or redirect_header($_SERVER['PHP_SELF'], 3, mysql_error());
+    $xoopsDB->queryF($sql) or redirect_header($_SERVER['PHP_SELF'], 3, $GLOBALS['xoopsDB']->error());
 
     return $sn;
 }
@@ -301,7 +301,7 @@ echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR
 <html>
 <head>
 <meta http-equiv='content-type' content='text/html; charset=" . _CHARSET . "'>
-<link rel='stylesheet' type='text/css' media='screen' href='" . XOOPS_URL . "/modules/tad_cbox/module.css' />";
+<link rel='stylesheet' type='text/css' media='screen' href='" . XOOPS_URL . "/modules/tad_cbox/module.css'>";
 
 if ('reload' === $_GET['op']) {
     echo "<script type='text/javascript'>window.open('" . XOOPS_URL . "/modules/tad_cbox/show.php?mode=box','cboxmain')</script>";

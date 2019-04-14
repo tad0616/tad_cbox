@@ -5,8 +5,8 @@
 // ------------------------------------------------------------------------- //
 
 /*-----------引入檔案區--------------*/
-include_once '../../../include/cp_header.php';
-include_once '../function.php';
+require_once dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+require_once dirname(__DIR__) . '/function.php';
 
 /*-----------function區--------------*/
 
@@ -22,7 +22,7 @@ function list_tad_cbox()
     $bar = $PageBar['bar'];
     $sql = $PageBar['sql'];
 
-    $result = $xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'], 3, mysql_error());
+    $result = $xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'], 3, $GLOBALS['xoopsDB']->error());
 
     //判斷是否對該模組有管理權限，  若空白
     if ($xoopsUser) {
@@ -63,7 +63,7 @@ function list_tad_cbox()
 	<tr><td class=bar>$bar</td></tr>";
     $i = 2;
 
-    while (list($sn, $publisher, $msg, $post_date, $ip, $only_root, $root_msg) = $xoopsDB->fetchRow($result)) {
+    while (false !== (list($sn, $publisher, $msg, $post_date, $ip, $only_root, $root_msg) = $xoopsDB->fetchRow($result))) {
         $bgcss = ($i % 2) ? "color:{$xoopsModuleConfig['col1_color']};background-color:{$xoopsModuleConfig['col1_bgcolor']}" : "color:{$xoopsModuleConfig['col2_color']};background-color:{$xoopsModuleConfig['col2_bgcolor']}";
 
         $post_date = date('Y-m-d H:i:s', xoops_getUserTimestamp(strtotime($post_date)));
@@ -120,7 +120,7 @@ switch ($op) {
 
 /*-----------秀出結果區--------------*/
 xoops_cp_header();
-echo "<link rel='stylesheet' type='text/css' media='screen' href='../module.css' />";
+echo "<link rel='stylesheet' type='text/css' media='screen' href='../module.css'>";
 //admin_toolbar(0);
 echo $main;
 xoops_cp_footer();
