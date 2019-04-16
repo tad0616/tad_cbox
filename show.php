@@ -149,7 +149,7 @@ function breakLongWords($str, $maxLength, $char)
         }
 
         if (!$openTag) {
-            if (!in_array($str[$i], $wordEndChars, true)) {//If not word ending char
+            if (!in_array($str[$i], $wordEndChars)) {//If not word ending char
                 $count++;
                 if ($count == $maxLength) {//if current word max length is reached
                     $ch = mb_substr($newStr, $count - 1, 1);

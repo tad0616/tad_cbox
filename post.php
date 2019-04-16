@@ -259,12 +259,12 @@ function is_no_chk()
         $no_chk = false;
         $group = $xoopsUser->getGroups();
         foreach ($group as $g) {
-            if (in_array($g, $xoopsModuleConfig['no_need_chk'], true)) {
+            if (in_array($g, $xoopsModuleConfig['no_need_chk'])) {
                 return true;
             }
         }
     } else {
-        return in_array(3, $xoopsModuleConfig['no_need_chk'], true);
+        return in_array(3, $xoopsModuleConfig['no_need_chk']);
     }
 }
 

@@ -39,12 +39,12 @@ function tad_cbox_b_show_1($options)
         $no_chk = false;
         $group = $xoopsUser->getGroups();
         foreach ($group as $g) {
-            if (in_array($g, $xoopsModuleConfig['no_need_chk'], true)) {
+            if (in_array($g, $xoopsModuleConfig['no_need_chk'])) {
                 $no_chk = true;
             }
         }
     } else {
-        $no_chk = in_array(3, $xoopsModuleConfig['no_need_chk'], true);
+        $no_chk = in_array(3, $xoopsModuleConfig['no_need_chk']);
     }
 
     if ('1' == $xoopsModuleConfig['security_images'] and !$no_chk) {
