@@ -71,7 +71,7 @@ function list_tad_cbox()
 
     $memberHandler = xoops_getHandler('member');
 
-    while (false !== (list($sn, $publisher, $msg, $post_date, $ip, $only_root, $root_msg) = $xoopsDB->fetchRow($result))) {
+    while (list($sn, $publisher, $msg, $post_date, $ip, $only_root, $root_msg) = $xoopsDB->fetchRow($result)) {
         /*
           $user = $memberHandler->getUser($publisher);
         if (is_object($user)) {

@@ -63,7 +63,7 @@ function list_tad_cbox()
 	<tr><td class=bar>$bar</td></tr>";
     $i = 2;
 
-    while (false !== (list($sn, $publisher, $msg, $post_date, $ip, $only_root, $root_msg) = $xoopsDB->fetchRow($result))) {
+    while (list($sn, $publisher, $msg, $post_date, $ip, $only_root, $root_msg) = $xoopsDB->fetchRow($result)) {
         $bgcss = ($i % 2) ? "color:{$xoopsModuleConfig['col1_color']};background-color:{$xoopsModuleConfig['col1_bgcolor']}" : "color:{$xoopsModuleConfig['col2_color']};background-color:{$xoopsModuleConfig['col2_bgcolor']}";
 
         $post_date = date('Y-m-d H:i:s', xoops_getUserTimestamp(strtotime($post_date)));
