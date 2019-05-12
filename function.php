@@ -28,7 +28,13 @@ function delete_tad_cbox($sn = '')
     }
 }
 
-/********************* 預設函數 *********************/
+/********************* 預設函數 ********************
+ * @param string $title
+ * @param string $main
+ * @param string $kind
+ * @param string $style
+ * @return string
+ */
 //圓角文字框
 function div_3d($title = '', $main = '', $kind = 'raised', $style = '')
 {
