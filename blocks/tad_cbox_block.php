@@ -20,17 +20,17 @@ function tad_cbox_b_show_1($options)
     if (!file_exists(XOOPS_ROOT_PATH . '/modules/tadtools/jquery.php')) {
         redirect_header('http://www.tad0616.net/modules/tad_uploader/index.php?of_cat_sn=50', 3, _TAD_NEED_TADTOOLS);
     }
-    include_once XOOPS_ROOT_PATH . '/modules/tadtools/jquery.php';
+    require_once XOOPS_ROOT_PATH . '/modules/tadtools/jquery.php';
     $jquery_path = get_jquery();
 
     $_SESSION['cbox_show_num'] = $options[0];
     $_SESSION['cbox_root_msg_color'] = $options[4];
     $_SESSION['cbox_use_smile'] = $options[1];
 
-    $modhandler = xoops_getHandler('module');
-    $xoopsModule = $modhandler->getByDirname('tad_cbox');
-    $config_handler = xoops_getHandler('config');
-    $xoopsModuleConfig = $config_handler->getConfigsByCat(0, $xoopsModule->getVar('mid'));
+    $moduleHandler = xoops_getHandler('module');
+    $xoopsModule = $moduleHandler->getByDirname('tad_cbox');
+    $configHandler = xoops_getHandler('config');
+    $xoopsModuleConfig = $configHandler->getConfigsByCat(0, $xoopsModule->getVar('mid'));
 
     $post_height = $options[3];
 
@@ -39,12 +39,12 @@ function tad_cbox_b_show_1($options)
         $no_chk = false;
         $group = $xoopsUser->getGroups();
         foreach ($group as $g) {
-            if (in_array($g, $xoopsModuleConfig['no_need_chk'], true)) {
+            if (in_array($g, $xoopsModuleConfig['no_need_chk'])) {
                 $no_chk = true;
             }
         }
     } else {
-        $no_chk = in_array(3, $xoopsModuleConfig['no_need_chk'], true);
+        $no_chk = in_array(3, $xoopsModuleConfig['no_need_chk']);
     }
 
     if ('1' == $xoopsModuleConfig['security_images'] and !$no_chk) {
@@ -122,7 +122,7 @@ function tad_cbox_b_show_1($options)
     $block = "
 	$txt
 	<div align='center' id='cboxdiv'>
-<iframe frameborder='0' width='100%' height='{$options[2]}' src='" . XOOPS_URL . "/modules/tad_cbox/show.php?mode=box&twh=100%' marginheight='2' marginwidth='2' scrolling='auto' allowtransparency='yes' name='cboxmain' style='border:#ababab 1px solid;' id='cboxmain'></iframe><br/>
+<iframe frameborder='0' width='100%' height='{$options[2]}' src='" . XOOPS_URL . "/modules/tad_cbox/show.php?mode=box&twh=100%' marginheight='2' marginwidth='2' scrolling='auto' allowtransparency='yes' name='cboxmain' style='border:#ababab 1px solid;' id='cboxmain'></iframe><br>
 <iframe frameborder='0' width='100%' height='{$post_height}' src='" . XOOPS_URL . "/modules/tad_cbox/post.php' marginheight='2' marginwidth='2' scrolling='no' allowtransparency='yes' name='cboxform' style='border:#ababab 1px solid;border-top:0px' id='cboxform'></iframe>
 <p style='text-align:right;'><a href='" . XOOPS_URL . "/modules/tad_cbox/index.php'>" . _MB_TADCBOX_TAD_CBOX_VIEW_ALL . '</a></p></div>';
 
@@ -195,7 +195,7 @@ function tad_cbox_b_edit($options)
   <tr>
     <th>" . _MB_TADCBOX_TAD_CBOX_B_EDIT_BITEM4 . "</th>
     <td>
-    <input type='color' name='options[4]' id='options4' value='{$options[4]}' data-text='hidden' style='height:20px;width:20px;' />
+    <input type='color' name='options[4]' id='options4' value='{$options[4]}' data-text='hidden' style='height:20px;width:20px;'>
     </td>
   </tr>
 

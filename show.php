@@ -5,7 +5,7 @@
 // ------------------------------------------------------------------------- //
 
 /*-----------引入檔案區--------------*/
-include_once 'header.php';
+require_once __DIR__ . '/header.php';
 /*-----------function區--------------*/
 
 //列出所有tad_cbox資料
@@ -69,11 +69,11 @@ function list_tad_cbox()
 	<table id='cbox_show_tbl'>$bar_tool";
     $i = 2;
 
-    $member_handler = xoops_getHandler('member');
+    $memberHandler = xoops_getHandler('member');
 
     while (list($sn, $publisher, $msg, $post_date, $ip, $only_root, $root_msg) = $xoopsDB->fetchRow($result)) {
         /*
-          $user = $member_handler->getUser($publisher);
+          $user = $memberHandler->getUser($publisher);
         if (is_object($user)) {
             $ts = MyTextSanitizer::getInstance();
             $uid_name=$ts->htmlSpecialChars($user->getVar('name'));
@@ -149,7 +149,7 @@ function breakLongWords($str, $maxLength, $char)
         }
 
         if (!$openTag) {
-            if (!in_array($str[$i], $wordEndChars, true)) {//If not word ending char
+            if (!in_array($str[$i], $wordEndChars)) {//If not word ending char
                 $count++;
                 if ($count == $maxLength) {//if current word max length is reached
                     $ch = mb_substr($newStr, $count - 1, 1);
@@ -194,7 +194,7 @@ switch ($_REQUEST['op']) {
 
 echo "<html><head>
 <meta http-equiv='content-type' content='text/html; charset=" . _CHARSET . "'>
-<link rel='stylesheet' type='text/css' media='screen' href='" . XOOPS_URL . "/modules/tad_cbox/module.css' />
+<link rel='stylesheet' type='text/css' media='screen' href='" . XOOPS_URL . "/modules/tad_cbox/module.css'>
 </head><body bgcolor='#FFFFFF' style='scrollbar-face-color:#EDF3F7;scrollbar-shadow-color:#EDF3F7;scrollbar-highlight-color:#EDF3F7;scrollbar-3dlight-color:#FFFFFF;scrollbar-darkshadow-color:#FFFFFF;scrollbar-track-color:#FFFFFF;scrollbar-arrow-color:#232323;scrollbar-base-color:#FFFFFF;'>";
 echo $main;
 echo '</body></html>';

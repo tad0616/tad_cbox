@@ -18,4 +18,6 @@ define('_MB_TADCBOX_TAD_CBOX_B_EDIT_BITEM5_txt', '（Content displayed in the to
 define('_MB_TADCBOX_TAD_CBOX_B_EDIT_BITEM6', 'Height of Bulletin');
 define('_MB_TADCBOX_TAD_CBOX_B_EDIT_BITEM7', 'CSS styles for Bulletin');
 define('_MB_TADCBOX_TAD_CBOX_VIEW_ALL', 'View all messages');
-define('_TAD_NEED_TADTOOLS', "This module needs TadTools module. You can download TadTools from <a href='http://www.tad0616.net/modules/tad_uploader/index.php?of_cat_sn=50' target='_blank'>Tad's web</a>.");
+if (!defined('_TAD_NEED_TADTOOLS')) {
+    define('_TAD_NEED_TADTOOLS', "This module needs TadTools module. You can download TadTools from <a href='http://www.tad0616.net/modules/tad_uploader/index.php?of_cat_sn=50' target='_blank'>Tad's web</a>.");
+}

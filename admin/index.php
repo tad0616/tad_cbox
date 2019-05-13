@@ -5,8 +5,8 @@
 // ------------------------------------------------------------------------- //
 
 /*-----------引入檔案區--------------*/
-include_once '../../../include/cp_header.php';
-include_once '../function.php';
+require_once dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+require_once dirname(__DIR__) . '/function.php';
 
 /*-----------function區--------------*/
 
@@ -22,7 +22,7 @@ function list_tad_cbox()
     $bar = $PageBar['bar'];
     $sql = $PageBar['sql'];
 
-    $result = $xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'], 3, mysql_error());
+    $result = $xoopsDB->query($sql) or redirect_header($_SERVER['PHP_SELF'], 3, $GLOBALS['xoopsDB']->error());
 
     //判斷是否對該模組有管理權限，  若空白
     if ($xoopsUser) {
@@ -120,7 +120,7 @@ switch ($op) {
 
 /*-----------秀出結果區--------------*/
 xoops_cp_header();
-echo "<link rel='stylesheet' type='text/css' media='screen' href='../module.css' />";
+echo "<link rel='stylesheet' type='text/css' media='screen' href='../module.css'>";
 //admin_toolbar(0);
 echo $main;
 xoops_cp_footer();
